@@ -47,7 +47,7 @@ public class ConductorActivity extends AppCompatActivity {
     }
 
     public void onSecondModeStatsButtonClick(View view) {
-        Toast.makeText(this,"Количество пассажиров:"+clicker.getNumberOfClicks()+"\nВыручка :"+clicker.getCounter(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Количество пассажиров: "+clicker.getNumberOfClicks()+"\nВыручка: "+clicker.getCounter(),Toast.LENGTH_SHORT).show();
     }
 
     public void onSecondModeCleanButtonClick(View view) {
