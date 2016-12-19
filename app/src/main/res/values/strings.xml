@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BUS CLICKER</string>
+    <string name="first_mode">ПОЛЬЗОВАТЕЛЬСКИЙ</string>
+    <string name="second_mode">КОНДУКТОР</string>
+    <string name="headline">ВЫБЕРИТЕ РЕЖИМ</string>
+    <string name="first_mode_headline">ВВЕДИТЕ СТОИМОСТЬ ПРОЕЗДА</string>
+    <string name="stats">СТАТИСТИКА</string>
+    <string name="clean">ОЧИСТИТЬ</string>
+</resources>
