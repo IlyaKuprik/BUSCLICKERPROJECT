@@ -17,6 +17,10 @@
         </activity>
         <activity android:name=".FirstModeActivity">
         </activity>
+        <activity android:name=".SecondModeActivity">
+        </activity>
+        <activity android:name=".ConductorActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -84,7 +84,7 @@ public class FirstModeActivity extends AppCompatActivity {
             clicker.setNumberOfClicks(mSaves.getInt(SAVES_NUMBER_OF_CLICKS,0));
         }
         if (mSaves.contains(SAVES_DATE)){
-            formattedDate=mSaves.getString(SAVES_DATE,"");
+            formattedDate=mSaves.getString(SAVES_DATE,null);
         }
     }
 }

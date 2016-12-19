@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this,FirstModeActivity.class);
         startActivity(intent);
     }
+
+    public void onSecondModeButtonClick(View view) {
+        Intent intent=new Intent(MainActivity.this,SecondModeActivity.class);
+        startActivity(intent);
+    }
 }

@@ -6,4 +6,12 @@
     <string name="first_mode_headline">ВВЕДИТЕ СТОИМОСТЬ ПРОЕЗДА</string>
     <string name="stats">СТАТИСТИКА</string>
     <string name="clean">ОЧИСТИТЬ</string>
+    <string name="first_cost">20 Р</string>
+    <string name="second_cost">22 Р</string>
+    <string name="third_cost">25 Р</string>
+    <string name="second_mode_headline">ВЫБЕРЕТИ СТОИМОСТЬ ОДНОГО ПРОЕЗДА</string>
+    <string name="second_mode_second_headline">ВВЕДИТЕ ДРУГУЮ СТОИМОСТЬ</string>
+    <string name="next">ДАЛЕЕ</string>
+    <string name="stop">СТОП</string>
+    <string name="resume">ПРОДОЛЖИТЬ</string>
 </resources>
