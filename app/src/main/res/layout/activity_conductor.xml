@@ -9,45 +9,60 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@color/background"
         tools:context="com.example.clicker.ConductorActivity" android:orientation="vertical">
 
     <Chronometer
             android:layout_width="match_parent"
             android:id="@+id/chrn"
+            android:textColor="@android:color/background_light"
             android:layout_height="wrap_content" android:gravity="center"
             android:textSize="50dp"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:layout_gravity="center"
             android:layout_height="wrap_content">
         <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:onClick="onConductorButtonClick"
-                android:layout_height="201dp" android:id="@+id/conductorButton"/>
-        <Button
-                android:text="@string/stop"
-                android:layout_width="match_parent"
-                android:onClick="onStopButtonClick"
-                android:layout_height="wrap_content" android:id="@+id/stopButton"/>
-        <Button
-                android:text="@string/resume"
-                android:layout_width="match_parent"
-                android:onClick="onSecondModeResumeClick"
-                android:layout_height="wrap_content" android:id="@+id/button6"/>
+                android:background="@drawable/button_converted"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" android:id="@+id/conductorButton"/>
     </LinearLayout>
     <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <Button
-                android:text="@string/stats"
-                android:layout_width="wrap_content"
-                android:onClick="onSecondModeStatsButtonClick"
-                android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/secondMoneStatButton"/>
-        <Button
-                android:text="@string/clean"
-                android:layout_width="wrap_content"
-                android:onClick="onSecondModeCleanButtonClick"
-                android:layout_height="wrap_content" android:id="@+id/secondModeCleanButton" android:layout_weight="1"/>
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:text="@string/stop"
+                    android:layout_width="match_parent"
+                    android:onClick="onStopButtonClick"
+                    android:layout_height="wrap_content" android:id="@+id/stopButton"/>
+            <Button
+                    android:text="@string/resume"
+                    android:layout_width="match_parent"
+                    android:onClick="onSecondModeResumeClick"
+                    android:layout_height="wrap_content" android:id="@+id/button6"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:text="@string/stats"
+                    android:layout_width="0dp"
+                    android:onClick="onSecondModeStatsButtonClick"
+                    android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/secondMoneStatButton"/>
+            <Button
+                    android:text="@string/clean"
+                    android:layout_width="0dp"
+                    android:onClick="onSecondModeCleanButtonClick"
+                    android:layout_height="wrap_content" android:id="@+id/secondModeCleanButton" android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

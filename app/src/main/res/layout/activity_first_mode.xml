@@ -16,11 +16,12 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
+            android:textColor="@android:color/background_light"
             android:id="@+id/firstModeHeadline" android:hint="@string/first_mode_headline"
             android:gravity="center_vertical|center" android:textSize="16dp"
-            android:textColorHint="@android:color/background_light" android:layout_weight="0.30"/>
+            android:textColorHint="@android:color/background_light" android:layout_weight="0.15"/>11
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/clickButtonLayout"
@@ -47,15 +48,14 @@
                     android:text="@string/stats"
                     android:inputType="number"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:onClick="onStatsButtonClick"
                     android:id="@+id/statsButton"
-                    android:layout_width="wrap_content"/>
+                    android:layout_width="0dp" android:layout_weight="1"/>
             <Button
                     android:text="@string/clean"
                     android:onClick="onCleanButtonClick"
-                    android:layout_height="wrap_content" android:layout_weight="1"
-                    android:id="@+id/cleanButton" android:layout_width="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cleanButton" android:layout_width="0dp" android:layout_weight="1"/>
         </LinearLayout>
         <Button
                 android:text="@string/back"
