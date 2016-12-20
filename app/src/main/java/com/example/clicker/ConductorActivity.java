@@ -17,12 +17,14 @@ public class ConductorActivity extends AppCompatActivity {
     static long millis;
     Clicker clicker = new Clicker();
     public int variableCounter;
+    static long seconds=0;
 
     public static final String SECOND_SAVES="mySecondSave";
     public static final String SECOND_SAVES_COUNTER="secondCounter";
     public static final String SECOND_SAVES_NUMBER_OF_CLICKS="secondNumberOfClicks";
     public static final String SAVES_CHRONOMETER="chronometer";
     private SharedPreferences mSaves;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,10 @@ public class ConductorActivity extends AppCompatActivity {
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
+
                  millis=SystemClock.elapsedRealtime()
                     -chronometer.getBase();
+
             }
         });
     }
@@ -52,7 +56,6 @@ public class ConductorActivity extends AppCompatActivity {
         }
         variableCounter++;
         conductorButton.setText(Integer.toString(clicker.getCounter()));
-        Toast.makeText(this,Long.toString(millis),Toast.LENGTH_SHORT).show();
 
     }
 
@@ -79,6 +82,7 @@ public class ConductorActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
+
         SharedPreferences.Editor editor=mSaves.edit();
         editor.putInt(SECOND_SAVES_COUNTER,clicker.getCounter());
         editor.putInt(SECOND_SAVES_NUMBER_OF_CLICKS,clicker.getNumberOfClicks());
@@ -99,7 +103,8 @@ public class ConductorActivity extends AppCompatActivity {
             clicker.setNumberOfClicks(mSaves.getInt(SECOND_SAVES_NUMBER_OF_CLICKS,0));
         }
         if (mSaves.contains(SAVES_CHRONOMETER)){
-            chronometer.setBase(mSaves.getLong(SAVES_CHRONOMETER,0));
+          seconds = mSaves.getLong(SAVES_CHRONOMETER,0);
+
         }
 
     }
