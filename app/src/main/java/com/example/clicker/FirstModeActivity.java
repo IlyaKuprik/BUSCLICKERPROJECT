@@ -1,6 +1,7 @@
 package com.example.clicker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class FirstModeActivity extends AppCompatActivity {
     static String formattedDate;
     private SharedPreferences mSaves;
 
+    static SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,16 +42,18 @@ public class FirstModeActivity extends AppCompatActivity {
         else {
             Toast.makeText(this,"Пожалуйста,введите стоимость проезда",Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void onStatsButtonClick(View view) {
         if (clicker.getNumberOfClicks()==1) {
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
             formattedDate = df.format(c.getTime());
-
+            editor=mSaves.edit();
+            editor.putString(SAVES_DATE,formattedDate);
+            editor.apply();
         }
-        Toast.makeText(this, "Статистика проездов с " + formattedDate + "\nКоличество проездов: " + clicker.getNumberOfClicks() + "\nСумма всех проездов: " + clicker.getCounter(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void onStatsButtonClick(View view) {
+        Toast.makeText(this, "Статистика проездов с " + formattedDate + "\nКоличество проездов: " + clicker.getNumberOfClicks() + "\nСумма всех проездов: " + clicker.getCounter(), Toast.LENGTH_LONG).show();
     }
 
     public void onCleanButtonClick(View view) {
@@ -61,10 +65,9 @@ public class FirstModeActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
-        SharedPreferences.Editor editor=mSaves.edit();
+        editor=mSaves.edit();
         editor.putInt(SAVES_COUNTER,clicker.getCounter());
         editor.putInt(SAVES_NUMBER_OF_CLICKS,clicker.getNumberOfClicks());
-        editor.putString(SAVES_DATE,formattedDate);
         editor.apply();
     }
 
@@ -81,6 +84,11 @@ public class FirstModeActivity extends AppCompatActivity {
         if (mSaves.contains(SAVES_DATE)){
             formattedDate=mSaves.getString(SAVES_DATE,null);
         }
+    }
+
+    public void onFirstModeBackButtonClick(View view) {
+        Intent intent=new Intent(FirstModeActivity.this,MainActivity.class);
+        startActivity(intent);
     }
 }
 

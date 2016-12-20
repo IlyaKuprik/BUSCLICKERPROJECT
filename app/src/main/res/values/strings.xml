@@ -14,4 +14,5 @@
     <string name="next">ДАЛЕЕ</string>
     <string name="stop">СТОП</string>
     <string name="resume">ПРОДОЛЖИТЬ</string>
+    <string name="back">НАЗАД</string>
 </resources>
