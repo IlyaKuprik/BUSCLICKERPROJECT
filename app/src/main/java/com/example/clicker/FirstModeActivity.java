@@ -30,7 +30,7 @@ public class FirstModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_mode);
         clickButton=(Button)findViewById(R.id.clickButton);
-        firstModeHeadline=(EditText)findViewById(R.id.firstModeHeadline);
+        firstModeHeadline=(EditText)findViewById(R.id.editText2);
         mSaves=getSharedPreferences(SAVES, Context.MODE_PRIVATE);
     }
 
