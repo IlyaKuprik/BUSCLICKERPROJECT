@@ -14,13 +14,14 @@ public class ConductorActivity extends AppCompatActivity {
     Button conductorButton;
     Chronometer chronometer;
     public int value;
+    static long millis;
     Clicker clicker = new Clicker();
-    public int variableCcounter;
+    public int variableCounter;
 
     public static final String SECOND_SAVES="mySecondSave";
     public static final String SECOND_SAVES_COUNTER="secondCounter";
-    public static final String SECOND_SAVES_NUMBER_OF_CLICKS="SecondNumberOfClicks";
-    public static final String SAVES_CHRONOMETER="SecondNumberOfClicks";
+    public static final String SECOND_SAVES_NUMBER_OF_CLICKS="secondNumberOfClicks";
+    public static final String SAVES_CHRONOMETER="chronometer";
     private SharedPreferences mSaves;
 
     @Override
@@ -37,19 +38,22 @@ public class ConductorActivity extends AppCompatActivity {
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
-                    chronometer.getBase();
+                 millis=SystemClock.elapsedRealtime()
+                    -chronometer.getBase();
             }
         });
     }
 
     public void onConductorButtonClick(View view) {
         clicker.click(value);
-        if (variableCcounter==0||clicker.getNumberOfClicks()==1){
+        if (variableCounter==0||clicker.getNumberOfClicks()==1){
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start();
         }
-        variableCcounter++;
+        variableCounter++;
         conductorButton.setText(Integer.toString(clicker.getCounter()));
+        Toast.makeText(this,Long.toString(millis),Toast.LENGTH_SHORT).show();
+
     }
 
     public void onStopButtonClick(View view) {
@@ -78,7 +82,7 @@ public class ConductorActivity extends AppCompatActivity {
         SharedPreferences.Editor editor=mSaves.edit();
         editor.putInt(SECOND_SAVES_COUNTER,clicker.getCounter());
         editor.putInt(SECOND_SAVES_NUMBER_OF_CLICKS,clicker.getNumberOfClicks());
-       // editor.putLong(SAVES_CHRONOMETER,millis);
+        editor.putLong(SAVES_CHRONOMETER,millis);
         editor.apply();
     }
 
@@ -93,6 +97,9 @@ public class ConductorActivity extends AppCompatActivity {
         }
         if (mSaves.contains(SECOND_SAVES_NUMBER_OF_CLICKS)){
             clicker.setNumberOfClicks(mSaves.getInt(SECOND_SAVES_NUMBER_OF_CLICKS,0));
+        }
+        if (mSaves.contains(SAVES_CHRONOMETER)){
+            chronometer.setBase(mSaves.getLong(SAVES_CHRONOMETER,0));
         }
 
     }
