@@ -1,11 +1,4 @@
 package com.example.clicker;
-
-import android.content.Context;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 /**
  * Created by Пользователь on 17.12.2016.
  */

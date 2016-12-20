@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SecondModeActivity extends AppCompatActivity {
     EditText editText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,13 @@ public class SecondModeActivity extends AppCompatActivity {
     }
 
     public void onIndividualButtonClick(View view) {
-        Intent intent=new Intent(SecondModeActivity.this,ConductorActivity.class);
-        intent.putExtra("cost",editText.getText());
+        if (editText.getText().length()!=0){
+        Intent intent=new Intent(SecondModeActivity.this,ConductorActivity.class);;
+        intent.putExtra("cost",Integer.parseInt(String.valueOf(editText.getText())));
         startActivity(intent);
+        }
+        else{
+            Toast.makeText(this,"Пожалуйста,введите сумму",Toast.LENGTH_SHORT).show();
+        }
     }
 }

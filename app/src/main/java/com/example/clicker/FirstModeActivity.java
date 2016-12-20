@@ -21,7 +21,6 @@ public class FirstModeActivity extends AppCompatActivity {
     public static final String SAVES_NUMBER_OF_CLICKS="numberOfClicks";
     public static final String SAVES_DATE="date";
     static String formattedDate;
-
     private SharedPreferences mSaves;
 
     @Override
@@ -32,8 +31,6 @@ public class FirstModeActivity extends AppCompatActivity {
         firstModeHeadline=(EditText)findViewById(R.id.firstModeHeadline);
         mSaves=getSharedPreferences(SAVES, Context.MODE_PRIVATE);
     }
-
-
 
     public void onClickButtonClick(View view) {
         if (firstModeHeadline.getText().length()!=0) {
@@ -70,8 +67,6 @@ public class FirstModeActivity extends AppCompatActivity {
         editor.putString(SAVES_DATE,formattedDate);
         editor.apply();
     }
-
-
 
     @Override
     protected void onResume(){
