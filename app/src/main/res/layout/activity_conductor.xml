@@ -28,7 +28,8 @@
                 android:onClick="onConductorButtonClick"
                 android:background="@drawable/button_converted"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content" android:id="@+id/conductorButton"/>
+                android:layout_height="wrap_content" android:id="@+id/conductorButton"
+                android:textColor="@android:color/background_light" android:textSize="50dip"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
@@ -37,7 +38,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
             <Button
                     android:text="@string/stop"
                     android:layout_width="match_parent"
@@ -52,7 +53,7 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
             <Button
                     android:text="@string/stats"
                     android:layout_width="0dp"
@@ -63,6 +64,11 @@
                     android:layout_width="0dp"
                     android:onClick="onSecondModeCleanButtonClick"
                     android:layout_height="wrap_content" android:id="@+id/secondModeCleanButton" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
