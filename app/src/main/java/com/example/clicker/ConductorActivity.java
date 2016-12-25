@@ -2,9 +2,11 @@ package com.example.clicker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.icu.text.DateFormat;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -19,10 +21,13 @@ public class ConductorActivity extends AppCompatActivity {
     public int variableCounter;
 
     public static final String SECOND_SAVES="mySecondSave";
+    public static final String TAG="CONDUCTORR";
     public static final String SECOND_SAVES_COUNTER="secondCounter";
     public static final String SECOND_SAVES_NUMBER_OF_CLICKS="secondNumberOfClicks";
+    public static final String SECOND_SAVES_CHRONOMETER="CHRONOMETER";
     private SharedPreferences mSaves;
-
+    static  SharedPreferences.Editor editor;
+    static long millis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,12 @@ public class ConductorActivity extends AppCompatActivity {
         chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
             @Override
             public void onChronometerTick(Chronometer chronometer) {
-                    chronometer.getBase();
+                 millis=SystemClock.elapsedRealtime()
+                    -chronometer.getBase();
+                chronometer.setFormat("%s");
             }
         });
+
     }
 
     public void onConductorButtonClick(View view) {
@@ -57,6 +65,12 @@ public class ConductorActivity extends AppCompatActivity {
 
     public void onStopButtonClick(View view) {
         chronometer.stop();
+        editor=mSaves.edit();
+        editor.putLong(SECOND_SAVES_CHRONOMETER,millis);
+        editor.apply();
+        Log.wtf(TAG, "при паузе "+String.valueOf(chronometer.getBase()));
+        Log.wtf(TAG, "при паузе "+chronometer.getFormat());
+       // Toast.makeText(this, (int) millis,Toast.LENGTH_LONG).show();
 
     }
 
@@ -73,15 +87,20 @@ public class ConductorActivity extends AppCompatActivity {
 
     public void onSecondModeResumeClick(View view) {
         chronometer.start();
+        if(mSaves.contains(SECOND_SAVES_CHRONOMETER)){
+            chronometer.setBase(mSaves.getLong(SECOND_SAVES_CHRONOMETER,0));
+            Log.wtf(TAG, "при воспроизв "+String.valueOf(chronometer.getBase()));
+            Log.wtf(TAG, "при воспроизв "+chronometer.getFormat());
+        }
     }
 
     @Override
     protected void onPause(){
         super.onPause();
-
-        SharedPreferences.Editor editor=mSaves.edit();
+        mSaves.edit();
         editor.putInt(SECOND_SAVES_COUNTER,clicker.getCounter());
         editor.putInt(SECOND_SAVES_NUMBER_OF_CLICKS,clicker.getNumberOfClicks());
+        editor.putLong(SECOND_SAVES_CHRONOMETER,millis);
         editor.apply();
     }
 

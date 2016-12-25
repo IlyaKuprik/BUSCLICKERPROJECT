@@ -48,9 +48,16 @@
             android:text="@string/next"
             android:onClick="onIndividualButtonClick"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/individualButton" android:layout_weight="0.26"/>
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="310dp" app:srcCompat="@drawable/bus" android:id="@+id/imageView"
-            android:scaleType="fitEnd" android:layout_weight="0.21"/>
+            android:layout_height="wrap_content" android:id="@+id/individualButton" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="310dp" app:srcCompat="@drawable/bus" android:id="@+id/imageView"
+                android:scaleType="fitStart" />
+    </FrameLayout>
+
 </LinearLayout>

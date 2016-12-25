@@ -18,7 +18,9 @@ public class FirstModeActivity extends AppCompatActivity {
     Button clickButton;
     EditText firstModeHeadline;
     Clicker clicker=new Clicker();
+
     public static final String SAVES="mySave";
+
     public static final String SAVES_COUNTER="counter";
     public static final String SAVES_NUMBER_OF_CLICKS="numberOfClicks";
     public static final String SAVES_DATE="date";
