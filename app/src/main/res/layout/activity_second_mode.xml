@@ -52,10 +52,10 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="310dp" app:srcCompat="@drawable/bus" android:id="@+id/imageView"
                 android:scaleType="fitStart" />
     </FrameLayout>
